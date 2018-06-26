@@ -31,7 +31,6 @@
     <style type="text/css">
     	body{
 
-    		background-image: url("img/background.jpg");
     		color: white;
 
     	}
@@ -55,7 +54,7 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li> <a href="index.php">Home</a> </li>
+        <li> <a href="index.html">Home</a> </li>
             <li> <a href="sobre.php">Meus imóveis</a> </li>
             <li> <a href="sobre.php">Minha conta</a> </li>
             <li> <a href="sobre.php">Sobre</a> </li>
@@ -72,28 +71,33 @@
 
 
 
-<div class="container-fluid">
+<div class="container-fluid" style="color:black;">
 	<div class="col-md-4">
 
-<form id="formCadastro" data-toggle="validator" role="form" method="POST" action="http://localhost/classes/armazenamento.php">	 
+<form id="formCadastro" data-toggle="validator" role="form" method="POST" action="armaze.php">	 
 <div class="form-group">	    
  	<label for="textNome" class="control-label">Nome</label>	
-    <input id="nome" name="nome" class="form-control" placeholder="Digite seu Nome..." type="text" required>	  
+    <input style="border-color: black;" id="nome" name="nome" class="form-control" placeholder="Digite seu Nome..." type="text" required>	  
 </div>	  	  
 
 <div class="form-group">	    
 	<label for="inputEmail" class="control-label">Email</label>	    
-    <input id="email" name="email" class="form-control" placeholder="Digite seu E-mail" type="email" required>	  
-</div>	  	  
+    <input style="border-color: black; id="email" name="email" class="form-control" placeholder="Digite seu E-mail" type="email" required>	  
+</div>	  	 
+<div class="form-group">
+	<label class="control-label">telefone(<u>whatsapp</u>)</label>
+	<input style="border-color: black;" type="tel" name="telefone" class="form-control" placeholder="digite seu telefone celular" required>
+
+</div> 
 
 <div class="form-group">	    
 	<label for="inputConfirm" class="control-label">CPF</label>	    
-	<input id="CPF" name="CPF" type="text" class="form-control" id="inputConfirm" placeholder="CPF" required>	  
+	<input style="border-color: black; id="CPF" name="CPF" type="text" class="form-control" id="inputConfirm" placeholder="CPF" required>	  
 </div>	  	  	
 
 <div class="form-group">
    <label for="inputPassword" class="control-label">Senha</label>	 
-   <input id="senha" name="senha" type="password" class="form-control" id="inputPassword" placeholder="Digite sua Senha..." required>
+   <input style="border-color: black; id="senha" name="senha" type="password" class="form-control" id="inputPassword" placeholder="Digite sua Senha..." required>
 </div>	  	  
 
 

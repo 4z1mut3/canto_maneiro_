@@ -28,8 +28,6 @@
     <style type="text/css">
     body{
 
-    		background-image: url("img/background.jpg");
-    		opacity: 50%;
     		color: white;
 
     	}
@@ -57,7 +55,7 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li> <a href="index.php">Home</a> </li>
+        <li> <a href="index.html">Home</a> </li>
             <li> <a href="sobre.php">Meus imóveis</a> </li>
             <li> <a href="sobre.php">Minha conta</a> </li>
             <li> <a href="sobre.php">Sobre</a> </li>
@@ -71,31 +69,35 @@
 </nav>
    
 
-<div class="form">
+<div class="form" style="color: black">
 	<form class="container-fluid" id="formCadastro" data-toggle="validator" role="form" method="POST" action="http://localhost/classes/armazenamento.php">	 
-	<div class="form-group">	    
-	 	<label for="textNome" class="control-label">Endenreço</label>	
-	    <input id="nome" name="nome" class="form-control" placeholder="Informe endereço" type="text" required size="50">	  
-	</div>	  	  
-
-	<div class="form-group">	    
+    <div style="width: 800px;">
+        <h4 style="color: red"><U>INFORMAÇÕES DO IMÓVEL</U></h4><br> 
+        <label for="textNome" class="control-label">Tipo de imóvel</label><br>
+        <input style="width: 50%;border-color:black;" type="text" name="tipo" placeholder="ex:kitNet,Apartamento"><br>   
+	 	<label for="textNome" class="control-label">Endereço</label>	
+	    <input style="width: 50%;border-color: black;"id="nome" name="nome" class="form-control" placeholder="Informe endereço" type="text" required size="50">	 
+        <label> bairro </label><br>
+        <input style="width: 50%;border-color: black;" type="text" name="bairro" placeholder="digite o bairro"> <br> 	  	    
 	 	<label for="textNome" class="control-label">CEP</label>	
-	    <input id="nome" name="nome" class="form-control" placeholder="Informe CEP" type="text" required size="10">	  <br>
+	    <input style="width: 50%;border-color: black; id="nome" name="nome" class="form-control" placeholder="Informe CEP" type="text" required size="10">
 		<label for="inputEmail" class="control-label" >Quantidade de comodos</label>	    
-	    <input id="email" name="email" class="form-control" placeholder="Informe a quantidade de comodos do imóvel" type="email" required size="3">	  
-	</div>	  	  
-
-	<div class="form-group">	    
+	    <input style="width: 50%;border-color: black; id="email" name="email" class="form-control" placeholder="Informe a quantidade de comodos do imóvel" type="text" required size="3">	        
 		<label for="inputConfirm" class="control-label">Largura</label>	    
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<input id="CPF" name="CPF" type="text" class="form-control" id="inputConfirm" placeholder="Em metros" required size="20">	  
-<br>
+		<input style="width: 50%;border-color: black; id="CPF" name="CPF" type="text" class="form-control" id="inputConfirm" placeholder="Em metros" required size="20">	  
 	   <label for="inputPassword" class="control-label">Comprimento</label>	 
-	   <input id="senha" name="senha" type="password" class="form-control" id="inputPassword" placeholder="Em metros" required size="20">
-	</div>	  	  
-
-
-	<button type="submit" class="btn btn-primary">Salvar</button>	
+	   <input style="width: 50%;border-color: black; id="senha" name="senha" type="text" class="form-control" id="inputPassword" placeholder="Em metros" required size="20">
+       <label class="control-label">valor do imóvel</label><BR>
+       <input style="width: 50%;border-color: black;" type="text" name="valor" placeholder="valor em R$">
+	</div>
+    <div style="float: left;margin-top: -300px;margin-left: 500px;">	
+    <!-- aqui para anexar uma foto !-->
+    <h4 style="text-align: center;"><u>anexar foto do imóvel</u></h4>
+    <input type="file" name="myfile" accept="image/png, image/jpeg"  multiple>  <br>	
+    <input type="file" name="myfile2" accept="image/png, image/jpeg" multiple=""><br>  
+	<button  type="submit" class="btn btn-primary">Salvar cadastro</button>
+    </div>	
 	</form>
 
 </div>
