@@ -70,7 +70,7 @@
    
 
 <div class="form" style="color: black">
-	<form class="container-fluid" id="formCadastro" data-toggle="validator" role="form" method="POST" action="http://localhost/classes/armazenamento.php">	 
+	<form class="container-fluid" id="formCadastro" data-toggle="validator" role="form" method="POST" action="armaze-imovel.php">	 
     <div style="width: 800px;">
         <h4 style="color: red"><U>INFORMAÇÕES DO IMÓVEL</U></h4><br> 
         <label for="textNome" class="control-label">Tipo de imóvel</label><br>
@@ -80,14 +80,11 @@
         <label> bairro </label><br>
         <input style="width: 50%;border-color: black;" type="text" name="bairro" placeholder="digite o bairro"> <br> 	  	    
 	 	<label for="textNome" class="control-label">CEP</label>	
-	    <input style="width: 50%;border-color: black; id="nome" name="nome" class="form-control" placeholder="Informe CEP" type="text" required size="10">
+	    <input style="width: 50%;border-color: black; id="nome" name="cep" class="form-control" placeholder="Informe CEP" type="text" required size="10">
 		<label for="inputEmail" class="control-label" >Quantidade de comodos</label>	    
-	    <input style="width: 50%;border-color: black; id="email" name="email" class="form-control" placeholder="Informe a quantidade de comodos do imóvel" type="text" required size="3">	        
-		<label for="inputConfirm" class="control-label">Largura</label>	    
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<input style="width: 50%;border-color: black; id="CPF" name="CPF" type="text" class="form-control" id="inputConfirm" placeholder="Em metros" required size="20">	  
-	   <label for="inputPassword" class="control-label">Comprimento</label>	 
-	   <input style="width: 50%;border-color: black; id="senha" name="senha" type="text" class="form-control" id="inputPassword" placeholder="Em metros" required size="20">
+	    <input style="width: 50%;border-color: black; id="email" name="como" class="form-control" placeholder="Informe a quantidade de comodos do imóvel" type="text" required size="3">	        	  
+	   <label for="inputPassword" class="control-label">area</label>	 
+	   <input style="width: 50%;border-color: black; id="senha" name="area" type="text" class="form-control" id="inputPassword" placeholder="Em metros" required size="20">
        <label class="control-label">valor do imóvel</label><BR>
        <input style="width: 50%;border-color: black;" type="text" name="valor" placeholder="valor em R$">
 	</div>

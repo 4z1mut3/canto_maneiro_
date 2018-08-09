@@ -77,26 +77,13 @@
     <?php
 	include_once("connection.php");
 	$nome = $_POST["nome"];
-	$email = $_POST["email"];
+    $email = $_POST["email"];
 	$telefone= $_POST["telefone"];
 	$cpf= $_POST["CPF"];
-	$senha= $_POST["senha"];
+	$senha= md5($_POST["senha"]);
 
-		$query_select = " SELECT email FROM cadastro WHERE email = '$email'";
-		$selecio = mysqli_query($conn,$query_select);
-		$array = mysqli_fetch_array($selecio);
-		$logarray = $array['email'];
-		
-		if($email == "" || $email == null){
-   		 echo"<script language='javascript' type='text/javascript'>alert('O campo email deve ser preenchido');window.location.href='cadastro.html';</script>";
-   		}else{
-     		 if($logarray == $email){
- 
-       			 echo"<script language='javascript' type='text/javascript'>alert('Esse email já existe');window.location.href='cadastro.html';</script>";
-        		die();
-        		}
-        	}
-        	$sql = "INSERT INTO `cadastro`(nome,email,telefone,cpf,senha) VALUES ('$nome','$email','$telefone','$cpf','$senha')";
+			
+    $sql = "INSERT INTO usuarios(nome,cpf,telefone,senha,email) VALUES ('$nome','$cpf','$telefone','$senha','$email')";
 	$resul = mysqli_query($conn,$sql);
         if($resul){
           echo"<script language='javascript' type='text/javascript'>alert('Usuário cadastrado com sucesso!');window.location.href='cadastro.html'</script>";
