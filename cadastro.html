@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cadastro</title>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Canto Maneiro</title>
+    
+    <!-- Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
+    
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <style type="text/css">
+    	body{
+
+    		color: white;
+
+    	}
+    </style>
+
+
+</head>
+<body>
+
+ 
+ 
+<nav class="navbar navbar-iverse" id="barra_de_navegacao">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar" id="botaoNav">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      <a class="navbar-brand" href="#"><b>Canto Maneiro</b></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li> <a href="index.html">Home</a> </li>
+            <li> <a href="sobre.php">Meus imóveis</a> </li>
+            <li> <a href="sobre.php">Minha conta</a> </li>
+            <li> <a href="sobre.php">Sobre</a> </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="Cadastro.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+    </div> <!-- End mainmenu area -->
+
+
+
+
+<div class="container-fluid" style="color:black;">
+	<div class="col-md-4">
+
+<form id="formCadastro" data-toggle="validator" role="form" method="POST" action="armaze.php">	 
+<div class="form-group">	    
+ 	<label for="textNome" class="control-label">Nome</label>	
+    <input style="border-color: black;" id="nome" name="nome" class="form-control" placeholder="Digite seu Nome..." type="text" required>	  
+</div>	  	  
+
+<div class="form-group">	    
+	<label for="inputEmail" class="control-label">Email</label>	    
+    <input style="border-color: black; id="email" name="email" class="form-control" placeholder="Digite seu E-mail" type="email" required>	  
+</div>	  	 
+<div class="form-group">
+	<label class="control-label">telefone(<u>whatsapp</u>)</label>
+	<input style="border-color: black;" type="tel" name="telefone" class="form-control" placeholder="digite seu telefone celular" required>
+
+</div> 
+
+<div class="form-group">	    
+	<label for="inputConfirm" class="control-label">CPF</label>	    
+	<input style="border-color: black; id="CPF" name="CPF" type="text" class="form-control" id="inputConfirm" placeholder="CPF" required>	  
+</div>	  	  	
+
+<div class="form-group">
+   <label for="inputPassword" class="control-label">Senha</label>	 
+   <input style="border-color: black; id="senha" name="senha" type="password" class="form-control" id="inputPassword" placeholder="Digite sua Senha..." required>
+</div>	  	  
+
+
+	<button type="submit" class="btn btn-primary">Salvar</button>	
+</form>
+		
+	</div>
+</div>
+
+
+
+
+
+   <!-- Latest jQuery form server -->
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    
+    <!-- Bootstrap JS form CDN -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    
+    <!-- jQuery sticky menu -->
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.sticky.js"></script>
+    
+    <!-- jQuery easing -->
+    <script src="js/jquery.easing.1.3.min.js"></script>
+    
+    <!-- Main Script -->
+    <script src="js/main.js"></script>
+    
+    <!-- Slider -->
+    <script type="text/javascript" src="js/bxslider.min.js"></script>
+	<script type="text/javascript" src="js/script.slider.js"></script>
+
+
+
+</body>
+
+
+ </html>
