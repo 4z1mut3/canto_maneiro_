@@ -1,136 +1,426 @@
-<!DOCTYPE html>
-<html>
+<?php 
+
+session_start();
+if ((!isset($_SESSION["logar"])) || (!isset ($_SESSION["senha_log"]))) {
+    header('location:login.html');
+    exit;
+    
+}else{
+   $logado = $_SESSION['logar'];
+}
+?>
+
+
+<!doctype html>
+<html class="no-js" lang="en">
+
 <head>
-	<title>cadastre seu imovel</title>
-
-<title>Cadastro</title>
-	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Canto maneiro </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Canto Maneiro</title>
-    
-    <!-- Google Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
-    
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/owl.carousel.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="css/responsive.css">
-
-    <style type="text/css">
-    body{
-
-    		color: white;
-
-    	}
-    	#barra_de_navegacao{
-    		color: white;
-    	}
-    </style>
+    <link rel="shortcut icon" type="image/png" href="assets/images/icon/favicon.ico">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/themify-icons.css">
+    <link rel="stylesheet" href="assets/css/metisMenu.css">
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/css/slicknav.min.css">
+    <!-- amchart css -->
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css"
+        media="all" />
+    <!-- others css -->
+    <link rel="stylesheet" href="assets/css/typography.css">
+    <link rel="stylesheet" href="assets/css/default-css.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <!-- modernizr css -->
+    <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
+
 <body>
-
-
-<nav class="navbar navbar-iverse" id="barra_de_navegacao">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar" id="botaoNav">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span> 
-      </button>
-      <a class="navbar-brand" href="index.html"><b>Canto Maneiro</b></a>
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <!-- preloader area start -->
+    <div id="preloader">
+        <div class="loader"></div>
     </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li> <a href="index.php">Home</a> </li>
-            <li> <a href="sobre.php">Meus imóveis</a> </li>
-            <li> <a href="sobre.php">Minha conta</a> </li>
-            <li> <a href="sobre.php">Sobre</a> </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="cadastro.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      </ul>
-    </div>
-  </div>
-  <?php 
+    <!-- preloader area end -->
+    <!-- page container area start -->
+    <div class="page-container">
+        <!-- sidebar menu area start -->
+        <div class="sidebar-menu">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <a href="#"><img src="images/home.png" alt="logo"></a>
+                    <h3>Canto maneiro</h3>
+                </div>
+            </div>
+            <div class="main-menu">
+                <div class="menu-inner">
+                    <nav>
+                        <ul class="metismenu" id="menu">
+                            <li class="active">
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-dashboard"></i><span><?php
+                                    echo ("bem-vindo $logado");
+                                  ?>
+                                    </span></a>
+                                <ul class="collapse">
+                                    <li class="active"><a href="index.html"></a></li>
+                                    <li><a href="index.php">Minhas unformações</a></li>
+                                    <li><a href="logout.php">sair da conta</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Meus
+                                        imóveis</span></a>
+                                <ul class="collapse">
+                                    <li><a href="cadastro-imovel.html">Cadastrar imóveis</a></li>
+                                    <li><a href="linechart.html">Alugar</a></li>
+                                    <li><a href="filtro.php">Econtrar imóveis</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Meus
+                                        pagamentos</span></a>
+                                <ul class="collapse">
+                                    <li><a href="barchart.html">Boletos</a></li>
+                                    <li><a href="linechart.html"></a></li>
 
- session_start();
+                                </ul>
+                            </li>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- sidebar menu area end -->
+        <!-- main content area start -->
+        <div class="main-content">
+            <!-- header area start -->
+            <div class="header-area">
+                <div class="row align-items-center">
+                    <!-- nav and search button -->
+                    <div class="col-md-6 col-sm-8 clearfix">
+                        <div class="nav-btn pull-left">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="search-box pull-left">
+                            <form action="#">
+                                <input type="text" name="search" placeholder="Search..." required>
+                                <i class="ti-search"></i>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- profile info & task notification -->
+                    <div class="col-md-6 col-sm-4 clearfix">
+                        <ul class="notification-area pull-right">
+                            <li id="full-view"><i class="ti-fullscreen"></i></li>
+                            <li id="full-view-exit"><i class="ti-zoom-out"></i></li>
+                            <li class="dropdown">
+                                <i class="ti-bell dropdown-toggle" data-toggle="dropdown">
+                                    <span>2</span>
+                                </i>
+                                <div class="dropdown-menu bell-notify-box notify-box">
+                                    <span class="notify-title">You have 3 new notifications <a href="#">view
+                                            all</a></span>
+                                    <div class="nofity-list">
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb"><i class="ti-key btn-danger"></i></div>
+                                            <div class="notify-text">
+                                                <p>You have Changed Your Password</p>
+                                                <span>Just Now</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb"><i class="ti-comments-smiley btn-info"></i></div>
+                                            <div class="notify-text">
+                                                <p>New Commetns On Post</p>
+                                                <span>30 Seconds ago</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb"><i class="ti-key btn-primary"></i></div>
+                                            <div class="notify-text">
+                                                <p>Some special like you</p>
+                                                <span>Just Now</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb"><i class="ti-comments-smiley btn-info"></i></div>
+                                            <div class="notify-text">
+                                                <p>New Commetns On Post</p>
+                                                <span>30 Seconds ago</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb"><i class="ti-key btn-primary"></i></div>
+                                            <div class="notify-text">
+                                                <p>Some special like you</p>
+                                                <span>Just Now</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb"><i class="ti-key btn-danger"></i></div>
+                                            <div class="notify-text">
+                                                <p>You have Changed Your Password</p>
+                                                <span>Just Now</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb"><i class="ti-key btn-danger"></i></div>
+                                            <div class="notify-text">
+                                                <p>You have Changed Your Password</p>
+                                                <span>Just Now</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="dropdown">
+                                <i class="fa fa-envelope-o dropdown-toggle" data-toggle="dropdown"><span>3</span></i>
+                                <div class="dropdown-menu notify-box nt-enveloper-box">
+                                    <span class="notify-title">You have 3 new notifications <a href="#">view
+                                            all</a></span>
+                                    <div class="nofity-list">
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb">
+                                                <img src="assets/images/author/author-img1.jpg" alt="image">
+                                            </div>
+                                            <div class="notify-text">
+                                                <p>Aglae Mayer</p>
+                                                <span class="msg">Hey I am waiting for you...</span>
+                                                <span>3:15 PM</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb">
+                                                <img src="assets/images/author/author-img2.jpg" alt="image">
+                                            </div>
+                                            <div class="notify-text">
+                                                <p>Aglae Mayer</p>
+                                                <span class="msg">When you can connect with me...</span>
+                                                <span>3:15 PM</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb">
+                                                <img src="assets/images/author/author-img3.jpg" alt="image">
+                                            </div>
+                                            <div class="notify-text">
+                                                <p>Aglae Mayer</p>
+                                                <span class="msg">I missed you so much...</span>
+                                                <span>3:15 PM</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb">
+                                                <img src="assets/images/author/author-img4.jpg" alt="image">
+                                            </div>
+                                            <div class="notify-text">
+                                                <p>Aglae Mayer</p>
+                                                <span class="msg">Your product is completely Ready...</span>
+                                                <span>3:15 PM</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb">
+                                                <img src="assets/images/author/author-img2.jpg" alt="image">
+                                            </div>
+                                            <div class="notify-text">
+                                                <p>Aglae Mayer</p>
+                                                <span class="msg">Hey I am waiting for you...</span>
+                                                <span>3:15 PM</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb">
+                                                <img src="assets/images/author/author-img1.jpg" alt="image">
+                                            </div>
+                                            <div class="notify-text">
+                                                <p>Aglae Mayer</p>
+                                                <span class="msg">Hey I am waiting for you...</span>
+                                                <span>3:15 PM</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb">
+                                                <img src="assets/images/author/author-img3.jpg" alt="image">
+                                            </div>
+                                            <div class="notify-text">
+                                                <p>Aglae Mayer</p>
+                                                <span class="msg">Hey I am waiting for you...</span>
+                                                <span>3:15 PM</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="settings-btn">
+                                <i class="ti-settings"></i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- header area end -->
 
- if ((!isset($_SESSION["logar"])) || (!isset ($_SESSION["senha_log"]))) {
-     echo "<center><b><font color='red'><h3> não pode cadastrar imovel <a href='login.html'>faça o login</a></h3> </font></b></center>";
-     exit;
- }
- ?>
- <?php
- 
- echo "<center><b><font color='green'><h3> pode cadastrar imovel sem problemas</h3> </font></b></center>";
+            <script>
+            function meu_callback(conteudo) {
+                if (!("erro" in conteudo)) {
+                    //Atualiza os campos com os valores.
+                    document.getElementById('rua').value = (conteudo.logradouro);
+                    document.getElementById('bairro').value = (conteudo.bairro);
+                    document.getElementById('cidade').value = (conteudo.localidade);
+                    document.getElementById('estado').value = (conteudo.uf);
+                } //end if.
+                else {
+                    //CEP não Encontrado.
+                    limpa_formulario_cep();
+                    document.write("CEP não encontrado.");
+                    document.getElementById('cep').value = ("");
+                }
+            }
 
- ?>
-</nav>
-   
+            function pesquisacep(valor) {
+                //Nova variável "cep" somente com dígitos.
+                var cep = valor.replace(/\D/g, '');
 
-<div class="form" style="color: black">
-	<form class="container-fluid" id="formCadastro" data-toggle="validator" role="form" method="POST" action="armaze-imovel.php">	 
-    <div style="width: 800px;">
-        <h4 style="color: red"><U>INFORMAÇÕES DO IMÓVEL</U></h4><br> 
-        <label for="textNome" class="control-label">Tipo de imóvel</label><br>
-        <input style="width: 50%;border-color:black;" type="text" name="tipo" placeholder="ex:kitNet,Apartamento"><br>   
-	 	<label for="textNome" class="control-label">Endereço</label>	
-	    <input style="width: 50%;border-color: black;"id="nome" name="nome" class="form-control" placeholder="Informe endereço" type="text" required size="50">	 
-        <label> bairro </label><br>
-        <input style="width: 50%;border-color: black;" type="text" name="bairro" placeholder="digite o bairro"> <br> 	  	    
-	 	<label for="textNome" class="control-label">CEP</label>	
-	    <input style="width: 50%;border-color: black; id="nome" name="cep" class="form-control" placeholder="Informe CEP" type="text" required size="10">
-		<label for="inputEmail" class="control-label" >Quantidade de comodos</label>	    
-	    <input style="width: 50%;border-color: black; id="email" name="como" class="form-control" placeholder="Informe a quantidade de comodos do imóvel" type="text" required size="3">	        	  
-	   <label for="inputPassword" class="control-label">area</label>	 
-	   <input style="width: 50%;border-color: black; id="senha" name="area" type="text" class="form-control" id="inputPassword" placeholder="Em metros" required size="20">
-       <label class="control-label">valor do imóvel</label><BR>
-       <input style="width: 50%;border-color: black;" type="text" name="valor" placeholder="valor em R$">
-	</div>
-    <div style="float: left;margin-top: -300px;margin-left: 500px;">	
-    <!-- aqui para anexar uma foto !-->
-    <h4 style="text-align: center;"><u>anexar foto do imóvel</u></h4>
-    <input type="file" name="myfile" accept="image/png, image/jpeg"  multiple>  <br>	
-    <input type="file" name="myfile2" accept="image/png, image/jpeg" multiple=""><br>  
-	<button  type="submit" class="btn btn-primary">Salvar cadastro</button>
-    </div>	
-	</form>
+                //Verifica se campo cep possui valor informado.
+                if (cep !== "") {
 
-</div>
+                    //Expressão regular para validar o CEP.
+                    var validacep = /^[0-9]{8}$/;
+
+                    //Valida o formato do CEP.
+                    if (validacep.test(cep)) {
+
+                        //Preenche os campos com "..." enquanto consulta webservice.
+                        document.getElementById('rua').value = "...";
+                        document.getElementById('bairro').value = "...";
+                        document.getElementById('cidade').value = "...";
+                        document.getElementById('estado').value = "...";
+
+                        //Cria um elemento javascript.
+                        var script = document.createElement('script');
+
+                        //Sincroniza com o callback.
+                        script.src = '//viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
+
+                        //Insere script no documento e carrega o conteúdo.
+                        document.body.appendChild(script);
+
+                    } else {
+                        //cep é inválido.
+                        limpa_formulario_cep();
+                        alert("Formato de CEP inválido.");
+                    }
+                } //end if.
+                else {
+                    //cep sem valor, limpa formulário.
+                    limpa_formulario_cep();
+                }
+            }
+            </script>
 
 
 
 
+
+
+            <div class="form-group col-md-4">
+                <label class="col-md-4 control-label" for="CEP">CEP <h11>*</h11></label>
+                <div class="col-md- form-control">
+                    <input id="cep" name="cep" placeholder="Apenas números" class="form-control input-md" required=""
+                        value="" type="search" maxlength="8" pattern="[0-9]+$">
+                    <br>
+                    <button type="button" class="btn btn-primary" onclick="pesquisacep(cep.value)">Pesquisar</button>
+                </div>
+            </div>
+            <div class="form-group form-control">
+                <label class="col-md-4 control-label" for="prependedtext">Endereço</label>
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <span class="input-group-addon">Rua&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <input id="rua" name="rua" class="form-control" placeholder="" required="" readonly="readonly"
+                            type="text">
+
+                    </div>
+
+
+
+                </div>
+                <br>
+                <div class="col-md-4 ">
+                    <div class="input-group ">
+                        <span class="input-group col-md-6">Nº </span>
+                        <input id="numero" name="numero" class="form-control" placeholder="" required="" type="text">
+
+                        <span class="input-group">Bairro</span>
+                        <input id="bairro" name="bairro" class="form-control" placeholder="" required=""
+                            readonly="readonly" type="text">
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="prependedtext"></label>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <span
+                                class="input-group-addon">Cidade&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                            <input id="cidade" name="cidade" class="form-control" placeholder="" required=""
+                                readonly="readonly" type="text">
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-addon">Estado</span>
+                            <input id="estado" name="estado" class="form-control" placeholder="" required=""
+                                readonly="readonly" type="text">
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+
+
+
+                <!-- offset area end -->
+                <!-- jquery latest version -->
+                <script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
+                <!-- bootstrap 4 js -->
+                <script src="assets/js/popper.min.js"></script>
+                <script src="assets/js/bootstrap.min.js"></script>
+                <script src="assets/js/owl.carousel.min.js"></script>
+                <script src="assets/js/metisMenu.min.js"></script>
+                <script src="assets/js/jquery.slimscroll.min.js"></script>
+                <script src="assets/js/jquery.slicknav.min.js"></script>
+
+                <!-- start chart js -->
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+                <!-- start highcharts js -->
+                <script src="https://code.highcharts.com/highcharts.js"></script>
+                <!-- start zingchart js -->
+                <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+                <script>
+                zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
+                ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3edaf6d"];
+                </script>
+                <!-- all line chart activation -->
+                <script src="assets/js/line-chart.js"></script>
+                <!-- all pie chart -->
+                <script src="assets/js/pie-chart.js"></script>
+                <!-- others plugins -->
+                <script src="assets/js/plugins.js"></script>
+                <script src="assets/js/scripts.js"></script>
 </body>
 
-
-  <script src="https://code.jquery.com/jquery.min.js"></script>
-    
-    <!-- Bootstrap JS form CDN -->
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    
-    <!-- jQuery sticky menu -->
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.sticky.js"></script>
-    
-    <!-- jQuery easing -->
-    <script src="js/jquery.easing.1.3.min.js"></script>
-    
-    <!-- Main Script -->
-    <script src="js/main.js"></script>
-    
-    <!-- Slider -->
-    <script type="text/javascript" src="js/bxslider.min.js"></script>
-	<script type="text/javascript" src="js/script.slider.js"></script>
 </html>

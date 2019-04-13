@@ -1,235 +1,305 @@
-<!DOCTYPE html>
-<!--
-    ustora by freshdesignweb.com
-    Twitter: https://twitter.com/freshdesignweb
-    URL: https://www.freshdesignweb.com/ustora/
--->
-<html lang="en">
-  <head>
+
+ <?php 
+
+session_start();
+if ((!isset($_SESSION["logar"])) || (!isset ($_SESSION["senha_log"]))) {
+    header('location:login.html');
+    exit;
+    
+}else{
+   $logado = $_SESSION['logar'];
+}
+?>
+
+   
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Canto maneiro </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Canto Maneiro</title>
-    
-    <!-- Google Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
-    
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/owl.carousel.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="shortcut icon" type="image/png" href="assets/images/icon/favicon.ico">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/themify-icons.css">
+    <link rel="stylesheet" href="assets/css/metisMenu.css">
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/css/slicknav.min.css">
+    <!-- amchart css -->
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+    <!-- others css -->
+    <link rel="stylesheet" href="assets/css/typography.css">
+    <link rel="stylesheet" href="assets/css/default-css.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <!-- modernizr css -->
+    <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  
-<style type="text/css">
-    #botao-VerTodos{
-        color: black;
-    }
-    #myNavbar{
-        transition: 1s;
-        color: black;
-    }
-   
-</style>
-  </head>
-  <body>
-   
-   
-   
-
-
-<nav class="navbar navbar">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar" id="botaoNav">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span> 
-      </button>
-      <a class="navbar-brand" href="index.html"><b>Canto Maneiro</b></a>
+<body>
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <!-- preloader area start -->
+    <div id="preloader">
+        <div class="loader"></div>
     </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li> <a href="index.php">Home</a> </li>
-            <li> <a href="perfil.html">Minha conta</a> </li>
-            <li> <a href="sobre_nos.html">Sobre</a> </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="cadastro.html"> Sign Up</a></li>
-        <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-    <div>
-        <h1 style="text-align: center;">escolha o local que desejar</h1>
-        <form style="text-align: left;border-right: thin;padding: 40px;" method="POST" action="filtro.php">
-            <p><u>escolha por local</u></p><select name="local">
-              <option></option>
-              <option value="icoaraci">icoaraci</option>         
-              <option value="marco">bairro do marco</option>
-              <option value="tapana">tapana</option>
-              <option value="telegrafo">telegrafo</option>
-            </select><br><br>
-            <p><u>pesquisar por tipo de imovel</u></p>
-            <input type="checkbox" name="tipo" value="kit net"> KIT NET <br>
-            <input type="checkbox" name="tipo" value="apartamento"> APARTAMENTO <BR>    
-            <input type="checkbox" name="tipo" value="casa"> CASA <br>
-            <input type="checkbox" name="tipo" value="hotel"> HOTEL <br>
-            <input type="checkbox" name="tipo" value="pousada"> POUSADA <br>
-            <br>
-            <p><u>pesquisar por comodos</u></p>
-             <input type="checkbox" name="comodos" >1 À 2 comodos<br>
-             <input type="checkbox" name="comodos">3 À 4 comodos<br>
-             <input type="checkbox" name="comodos">5+ comodos<br>
-             <br>
-             <p><u>pesquisar por preço</u></p>
-             <input type="checkbox" name="preco">R$ 300,00 À R$ 500,00<BR>
-             <input type="checkbox" name="preco">R$ 600,00 À R$ 700,00<br>
-             <input type="checkbox" name="preco">R$ 800,00 À R$ 1000,00<br>
-             <input type="checkbox" name="preco">R$ 1.100,00 À R$ 1.200,00<br>
-             <input type="checkbox" name="preco">R$ 1.300,00 À R$ 1.500,00<br>
-             <input type="checkbox" name="preco">R$ 50,000.00 À R$ 60,000.00<br>
-             <input type="checkbox" name="preco">R$ 70.000,00 À R$ 80,000.00<br>
-             <input type="checkbox" name="preco">R$ 100.000,00 À R$ 120.000,00<br>
-             <input type="checkbox" name="preco">R$ 130.000,00 +<br>
-             <input style="margin-left: 250px;margin-top: -300px;position: absolute;" type="submit" name="" value="pesquisar">
-        </form><br><br><br><br>
-        <div style="border:solid thin;border-color: black; position: relative;height: 600px;width: 850px;margin-left: 460px;margin-top: -700px;overflow: auto;color:black;">
-            <?php 
-            include_once("connection.php");
-            $local= $_POST["local"];
-            
-            $sql = ("SELECT * FROM imovel where bairro='$local'");
-            $result = mysqli_query($conn,$sql);
-            while($linha = mysqli_fetch_array($result)){
-                    echo "local:  ". $linha['bairro'].'<br/>';
-                    echo "endereço:  ". $linha['endereco'].'<br/>';
-                    echo "comodos:  ". $linha['comodo'].'<br/>';
-                    echo "area:  ". $linha['area_mxm'].'<br/>';
-                    echo "valor:  ". $linha['preco'].'<br/>';
-                    echo "<br><br><br>-------------<br>";
-
-                }
-            
-
-             ?>
-            
+    <!-- preloader area end -->
+    <!-- page container area start -->
+    <div class="page-container">
+        <!-- sidebar menu area start -->
+        <div class="sidebar-menu">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <a href="#"><img src="images/home.png" alt="logo"></a>
+                    <h3>Canto maneiro</h3>
+                </div>
+            </div>
+            <div class="main-menu">
+                <div class="menu-inner">
+                    <nav>
+                        <ul class="metismenu" id="menu">
+                            <li class="active">
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-dashboard"></i><span><?php
+                                    echo ("bem-vindo $logado");
+                                  ?>
+                                 </span></a>
+                                <ul class="collapse">
+                                    <li class="active"><a href="index.html"></a></li>
+                                    <li><a href="index.php">Minhas unformações</a></li>
+                                    <li><a href="logout.php">sair da conta</a></li>
+                                </ul>
+                            </li>          
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Meus imóveis</span></a>
+                                <ul class="collapse">
+                                    <li><a href="cadastro-imovel.php">Cadastrar imóveis</a></li>                                    
+                                    <li><a href="filtro.php">Econtrar imóveis</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Meus pagamentos</span></a>
+                                <ul class="collapse">
+                                    <li><a href="barchart.html">Boletos</a></li>                               
+                                </ul>
+                            </li>
+                    </nav>
+                </div>
+            </div>
         </div>
-    </div>
-    <br><br><br><br><br><br><br>
-    <div class="footer-top-area">
-        <div class="zigzag-bottom"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-sm-6">
-                    <div class="footer-about-us">
-                        <h2><span>Canto Maneiro</span></h2>
-                        <p align="justify"></p>
-                        <div class="footer-social">
-                            <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
-                            <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
-                            <a href="#" target="_blank"><i class="fa fa-youtube"></i></a>
-                            <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
+        <!-- sidebar menu area end -->
+        <!-- main content area start -->
+        <div class="main-content">
+            <!-- header area start -->
+            <div class="header-area">
+                <div class="row align-items-center">
+                    <!-- nav and search button -->
+                    <div class="col-md-6 col-sm-8 clearfix">
+                        <div class="nav-btn pull-left">
+                            <span></span>
+                            <span></span>
+                            <span></span>
                         </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-3 col-sm-6">
-                    <div class="footer-menu">
-                        <h2 class="footer-wid-title">Navegação </h2>
-                        <ul>
-                            <li><a href="#">Minha conta</a></li>
-                            
-                            <li><a href="#">Lista de Desejos</a></li>
-                            <li><a href="#">Contato</a></li>
-                            <li><a href="#">Home</a></li>
-                        </ul>                        
-                    </div>
-                </div>
-                
-                <div class="col-md-3 col-sm-6">
-                    <div class="footer-menu">
-                        <h2 class="footer-wid-title">Categorias</h2>
-                        <ul>
-                            <li><a href="#">Kit Net</a></li>
-                            <li><a href="#">Casas</a></li>
-                            <li><a href="#">apartamentos</a></li>
-                            <li><a href="#">Fazendas</a></li>
-                            <li><a href="#">Nossas vilas</a></li>
-                        </ul>                        
-                    </div>
-                </div>
-                
-                <div class="col-md-3 col-sm-6">
-                    <div class="footer-newsletter">
-                        <h2 class="footer-wid-title">Receba nossas novidades!</h2>
-                        <p>Informe seu email para manter-se atualizado sobre nossas novidades!</p>
-                        <div class="newsletter-form">
+                        <div class="search-box pull-left">
                             <form action="#">
-                                <input type="email" placeholder="Informe seu e-mail">
-                                <input type="submit" value="Enviar">
+                                <input type="text" name="search" placeholder="Search..." required>
+                                <i class="ti-search"></i>
                             </form>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div> <!-- End footer top area -->
-    
-    <div class="footer-bottom-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="copyright">
-                        <p>&copy; 2k18 Feelgood Commerce. All Rights Reserved. <a href="http://www.freshdesignweb.com" target="_blank">azimut3.com</a></p>
+                    <!-- profile info & task notification -->
+                    <div class="col-md-6 col-sm-4 clearfix">
+                        <ul class="notification-area pull-right">
+                            <li id="full-view"><i class="ti-fullscreen"></i></li>
+                            <li id="full-view-exit"><i class="ti-zoom-out"></i></li>
+                            <li class="dropdown">
+                                <i class="ti-bell dropdown-toggle" data-toggle="dropdown">
+                                    <span>2</span>
+                                </i>
+                                <div class="dropdown-menu bell-notify-box notify-box">
+                                    <span class="notify-title">You have 3 new notifications <a href="#">view all</a></span>
+                                    <div class="nofity-list">
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb"><i class="ti-key btn-danger"></i></div>
+                                            <div class="notify-text">
+                                                <p>You have Changed Your Password</p>
+                                                <span>Just Now</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb"><i class="ti-comments-smiley btn-info"></i></div>
+                                            <div class="notify-text">
+                                                <p>New Commetns On Post</p>
+                                                <span>30 Seconds ago</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb"><i class="ti-key btn-primary"></i></div>
+                                            <div class="notify-text">
+                                                <p>Some special like you</p>
+                                                <span>Just Now</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb"><i class="ti-comments-smiley btn-info"></i></div>
+                                            <div class="notify-text">
+                                                <p>New Commetns On Post</p>
+                                                <span>30 Seconds ago</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb"><i class="ti-key btn-primary"></i></div>
+                                            <div class="notify-text">
+                                                <p>Some special like you</p>
+                                                <span>Just Now</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb"><i class="ti-key btn-danger"></i></div>
+                                            <div class="notify-text">
+                                                <p>You have Changed Your Password</p>
+                                                <span>Just Now</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb"><i class="ti-key btn-danger"></i></div>
+                                            <div class="notify-text">
+                                                <p>You have Changed Your Password</p>
+                                                <span>Just Now</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="dropdown">
+                                <i class="fa fa-envelope-o dropdown-toggle" data-toggle="dropdown"><span>3</span></i>
+                                <div class="dropdown-menu notify-box nt-enveloper-box">
+                                    <span class="notify-title">You have 3 new notifications <a href="#">view all</a></span>
+                                    <div class="nofity-list">
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb">
+                                                <img src="assets/images/author/author-img1.jpg" alt="image">
+                                            </div>
+                                            <div class="notify-text">
+                                                <p>Aglae Mayer</p>
+                                                <span class="msg">Hey I am waiting for you...</span>
+                                                <span>3:15 PM</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb">
+                                                <img src="assets/images/author/author-img2.jpg" alt="image">
+                                            </div>
+                                            <div class="notify-text">
+                                                <p>Aglae Mayer</p>
+                                                <span class="msg">When you can connect with me...</span>
+                                                <span>3:15 PM</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb">
+                                                <img src="assets/images/author/author-img3.jpg" alt="image">
+                                            </div>
+                                            <div class="notify-text">
+                                                <p>Aglae Mayer</p>
+                                                <span class="msg">I missed you so much...</span>
+                                                <span>3:15 PM</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb">
+                                                <img src="assets/images/author/author-img4.jpg" alt="image">
+                                            </div>
+                                            <div class="notify-text">
+                                                <p>Aglae Mayer</p>
+                                                <span class="msg">Your product is completely Ready...</span>
+                                                <span>3:15 PM</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb">
+                                                <img src="assets/images/author/author-img2.jpg" alt="image">
+                                            </div>
+                                            <div class="notify-text">
+                                                <p>Aglae Mayer</p>
+                                                <span class="msg">Hey I am waiting for you...</span>
+                                                <span>3:15 PM</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb">
+                                                <img src="assets/images/author/author-img1.jpg" alt="image">
+                                            </div>
+                                            <div class="notify-text">
+                                                <p>Aglae Mayer</p>
+                                                <span class="msg">Hey I am waiting for you...</span>
+                                                <span>3:15 PM</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb">
+                                                <img src="assets/images/author/author-img3.jpg" alt="image">
+                                            </div>
+                                            <div class="notify-text">
+                                                <p>Aglae Mayer</p>
+                                                <span class="msg">Hey I am waiting for you...</span>
+                                                <span>3:15 PM</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="settings-btn">
+                                <i class="ti-settings"></i>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                
-                <div class="col-md-4">
-                    <div class="footer-card-icon">
-                        <i class="fa fa-cc-discover"></i>
-                        <i class="fa fa-cc-mastercard"></i>
-                        <i class="fa fa-cc-paypal"></i>
-                        <i class="fa fa-cc-visa"></i>
-                    </div>
-                </div>
             </div>
-        </div>
-    </div> 
-    <!-- End footer bottom area -->
-   
-    <!-- Latest jQuery form server -->
-    <script src="https://code.jquery.com/jquery.min.js"></script>
-    
-    <!-- Bootstrap JS form CDN -->
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    
-    <!-- jQuery sticky menu -->
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.sticky.js"></script>
-    
-    <!-- jQuery easing -->
-    <script src="js/jquery.easing.1.3.min.js"></script>
-    
-    <!-- Main Script -->
-    <script src="js/main.js"></script>
-    
-    <!-- Slider -->
-    <script type="text/javascript" src="js/bxslider.min.js"></script>
-    <script type="text/javascript" src="js/script.slider.js"></script>
-  </body>
+            <!-- header area end -->
+            
+
+
+
+
+
+
+
+
+
+
+
+              
+    <!-- offset area end -->
+    <!-- jquery latest version -->
+    <script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
+    <!-- bootstrap 4 js -->
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/metisMenu.min.js"></script>
+    <script src="assets/js/jquery.slimscroll.min.js"></script>
+    <script src="assets/js/jquery.slicknav.min.js"></script>
+
+    <!-- start chart js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <!-- start highcharts js -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <!-- start zingchart js -->
+    <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+    <script>
+    zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
+    ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3edaf6d"];
+    </script>
+    <!-- all line chart activation -->
+    <script src="assets/js/line-chart.js"></script>
+    <!-- all pie chart -->
+    <script src="assets/js/pie-chart.js"></script>
+    <!-- others plugins -->
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/scripts.js"></script>
+</body>
+
 </html>

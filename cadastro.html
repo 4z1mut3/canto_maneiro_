@@ -7,128 +7,114 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Canto Maneiro</title>
-    
-    <!-- Google Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
-    
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/owl.carousel.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="css/responsive.css">
+        <!--===============================================================================================-->	
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <!--===============================================================================================-->	
+        <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="css/util.css">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!--===============================================================================================-->
 
-    <style type="text/css">
-    	body{
-
-    		color: white;
-
-    	}
+    <style>
+      .corpo{
+        margin: 0;
+        padding: 0;
+        top: 0;
+      }
     </style>
-
-
 </head>
 <body>
 
  
- 
-<nav class="navbar navbar-iverse" id="barra_de_navegacao">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar" id="botaoNav">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span> 
-      </button>
-      <a class="navbar-brand" href="#"><b>Canto Maneiro</b></a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li> <a href="index.html">Home</a> </li>
-            <li> <a href="sobre.php">Meus imóveis</a> </li>
-            <li> <a href="sobre.php">Minha conta</a> </li>
-            <li> <a href="sobre.php">Sobre</a> </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="Cadastro.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-    </div> <!-- End mainmenu area -->
+  
+
+
+<div class="corpo">
 
 
 
 
-<div class="container-fluid" style="color:black;">
-	<div class="col-md-4">
+<div class="limiter" >
+		<div class="container-login100" style="background-image: url('');">
+			<div class="wrap-login100 p-t-190 p-b-30">
+				<form class="login100-form validate-form corpo" method="POST" action="armaze.php">
+					<div class="login100-form-avatar">
+						<img src="images/home.png" alt="AVATAR">
+					</div>
+	                <span class="login100-form-title p-t-20 p-b-45">
+						Canto Maneiro
+					</span>
+				
 
-<form id="formCadastro" data-toggle="validator" role="form" method="POST" action="armaze.php">	 
-<div class="form-group">	    
- 	<label for="textNome" class="control-label">Nome</label>	
-    <input style="border-color: black;" id="nome" name="nome" class="form-control" placeholder="Digite seu Nome..." type="text" required>	  
-</div>	  	  
+					<div class="wrap-input100 validate-input m-b-10" data-validate = "Username is required">
+              <input class="input100" id="userLogin" name ="nome" type="text" aria-label="Nome" placeholder="Nome">
+						  <span class="focus-input100"></span>
+						  <span class="symbol-input100">
+							<i class="fa fa-user"></i>
+						</span>
+          </div
+          >
+          <div class="wrap-input100 validate-input m-b-10" data-validate = "Username is required">
+              <input class="input100" id="userLogin" name ="email" type="email" aria-label="Email" placeholder="Email">
+              <span class="focus-input100"></span>
+              <span class="symbol-input100">
+               <i class="fa fa-user"></i>
+              </span>
+          </div>
 
-<div class="form-group">	    
-	<label for="inputEmail" class="control-label">Email</label>	    
-    <input style="border-color: black; id="email" name="email" class="form-control" placeholder="Digite seu E-mail" type="email" required>	  
-</div>	  	 
-<div class="form-group">
-	<label class="control-label">telefone(<u>whatsapp</u>)</label>
-	<input style="border-color: black;" type="tel" name="telefone" class="form-control" placeholder="digite seu telefone celular" required>
-
-</div> 
-
-<div class="form-group">	    
-	<label for="inputConfirm" class="control-label">CPF</label>	    
-	<input style="border-color: black; id="CPF" name="CPF" type="text" class="form-control" id="inputConfirm" placeholder="CPF" required>	  
-</div>	  	  	
-
-<div class="form-group">
-   <label for="inputPassword" class="control-label">Senha</label>	 
-   <input style="border-color: black; id="senha" name="senha" type="password" class="form-control" id="inputPassword" placeholder="Digite sua Senha..." required>
-</div>	  	  
+          <div class="wrap-input100 validate-input m-b-10" data-validate = "Username is required">
+              <input class="input100" id="userLogin" name ="CPF" type="text" aria-label="CPF" placeholder="CPF" maxlength="10">
+              <span class="focus-input100"></span>
+              <span class="symbol-input100">
+               <i class="fa fa-user"></i>
+              </span>
+          </div>
 
 
-	<button type="submit" class="btn btn-primary">Salvar</button>	
-</form>
-		
+					<div class="wrap-input100 validate-input m-b-10" data-validate = "Password is required">
+						<input class="input100" id="userPassword" name="telefone" type="tel" aria-label="telefone" placeholder="Telefone">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock"></i>
+						</span>
+          </div>
+
+          <div class="wrap-input100 validate-input m-b-10" data-validate = "Password is required">
+              <input class="input100" id="userPassword" name="senha" type="password" aria-label="Senha" placeholder="Senha">
+              <span class="focus-input100"></span>
+              <span class="symbol-input100">
+                <i class="fa fa-lock"></i>
+              </span>
+            </div>
+
+					<div class="container-login100-form-btn p-t-10">
+            <input type="submit" value="Cadastrar" name="Cadastrar" class="btn btn-secondary btn-lg btn-block">
+          </div>
+          <br>
+          
+          <div class="container-login100-form-btn p-t-10">
+              <a type="button" class="btn btn-success btn-lg btn-block" href="login.html">Entre-já!</a>
+            </div>
+
+				
+
+					
+				</form>
+			</div>
+		</div>
 	</div>
 </div>
-
-
-
-
-
-   <!-- Latest jQuery form server -->
-    <script src="https://code.jquery.com/jquery.min.js"></script>
-    
-    <!-- Bootstrap JS form CDN -->
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    
-    <!-- jQuery sticky menu -->
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.sticky.js"></script>
-    
-    <!-- jQuery easing -->
-    <script src="js/jquery.easing.1.3.min.js"></script>
-    
-    <!-- Main Script -->
-    <script src="js/main.js"></script>
-    
-    <!-- Slider -->
-    <script type="text/javascript" src="js/bxslider.min.js"></script>
-	<script type="text/javascript" src="js/script.slider.js"></script>
-
-
-
 </body>
 
 
